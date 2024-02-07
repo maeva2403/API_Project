@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const router = Router();
 
-const searchCountries = async (searchQuery) => {
+const getAllCountries = async () => {
   const url - `https://restcountries.com/v3.1/all`
     const options = {
       method : 'GET',
@@ -15,7 +15,7 @@ const searchCountries = async (searchQuery) => {
   const response = await fetch(url, options);
   const json = await response.json();
 
-  return json.results;
+  return json;
 }
 
 
@@ -26,7 +26,7 @@ const findCountryByName = (name) => (country) => {
 
 router.get('/country', async (req, res) => {
   const countryName = req.query.name;
-  const foundCountries = await searchCountries(name);
+  const countries = await getAllCountries();
 
   if (countries.length === 0) {
       response
@@ -37,10 +37,10 @@ router.get('/country', async (req, res) => {
           });
   }
 
-  const country = foundCountry.find(findCountryByName(countryName)) || countries[0];
+  const country = countries.find(findCountryByName(countryName)) || countries[0].name.common;
 
   // Renvoyer les informations du pays en réponse
-  res.json(countryInfo);
+  res.json(country);
 });
 
 export default router;
