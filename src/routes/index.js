@@ -3,21 +3,45 @@ import axios from 'axios';
 
 const router = Router();
 
-router.get('/country/:name', async (req, res) => {
-    const countryName = req.params.name;
-    try {
-        // Effectuer une requête à l'API REST Countries
-        const response = await axios.get(`https://restcountries.com/v3.1/all`);
-        // Extraire les données du premier pays trouvé
-        const countries = response.json();
-//
-      
-        // Renvoyer les données du pays en réponse
-        res.json(countryData);
-    } catch (error) {
-        // En cas d'erreur, renvoyer une erreur 500 avec un message d'erreur
-        res.status(500).json({ message: 'Erreur lors de la récupération des informations sur le pays' });
-    }
+const searchCountries = async (searchQuery) => {
+  const url - `https://restcountries.com/v3.1/all`
+    const options = {
+      method : 'GET',
+      headers: {
+        accept : 'appplication/json',
+    },
+  };
+
+  const response = await fetch(url, options);
+  const json = await response.json();
+
+  return json.results;
+}
+
+
+// Fonction pour rechercher un pays par son nom
+const findCountryByName = (name) => (country) => {
+  return country.name.common.toLowerCase() === name.toLowerCase();
+};
+
+router.get('/country', async (req, res) => {
+  const countryName = req.query.name;
+  const foundCountries = await searchCountries(name);
+
+  if (countries.length === 0) {
+      response
+          .status(404)
+          .json({
+            status: 404, 
+            message: `We could not found a country with the name: ${countryName}`
+          });
+  }
+
+  const country = foundCountry.find(findCountryByName(countryName)) || countries[0];
+
+  // Renvoyer les informations du pays en réponse
+  res.json(countryInfo);
 });
 
 export default router;
+
