@@ -48,4 +48,3 @@ router.get('/country', async (req, res) => {
 });
 
 export default router;
-
