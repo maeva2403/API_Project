@@ -6,7 +6,7 @@ const router = Router();
 router.get('/rates', async (req, res) => {
     try {
         // Effectuer une requête pour obtenir les taux de change actuels
-        const response = await axios.get(`https://openexchangerates.org/api/latest.json?app_id=VOTRE_APP_ID_ICI`);
+        const response = await axios.get(`https://openexchangerates.org/api/latest.json`);
         
         // Extraire les taux de change de la réponse
         const rates = response.data.rates;
