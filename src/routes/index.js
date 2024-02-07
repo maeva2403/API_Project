@@ -1,14 +1,13 @@
 import { Router } from 'express';
-import axios from 'axios';
 
 const router = Router();
 
 const getAllCountries = async () => {
-  const url - `https://restcountries.com/v3.1/all`
+  const url = `https://restcountries.com/v3.1/all`;
     const options = {
       method : 'GET',
       headers: {
-        accept : 'appplication/json',
+        accept : 'application/json',
     },
   };
 
@@ -37,10 +36,15 @@ router.get('/country', async (req, res) => {
           });
   }
 
-  const country = countries.find(findCountryByName(countryName)) || countries[0].name.common;
+  const country = countries.find(findCountryByName(countryName)) || countries[0];
 
   // Renvoyer les informations du pays en réponse
-  res.json(country);
+  res.json({
+    common_name : country.name.common,
+    official_name: country.name.official,
+    language: Object.values(country.languages),
+    region: country.region
+  });
 });
 
 export default router;
