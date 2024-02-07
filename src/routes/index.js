@@ -7,9 +7,11 @@ router.get('/country/:name', async (req, res) => {
     const countryName = req.params.name;
     try {
         // Effectuer une requête à l'API REST Countries
-        const response = await axios.get(`https://restcountries.com/v3.1/name/${countryName}`);
+        const response = await axios.get(`https://restcountries.com/v3.1/all`);
         // Extraire les données du premier pays trouvé
-        const countryData = response.data[0];
+        const countries = response.json();
+//
+      
         // Renvoyer les données du pays en réponse
         res.json(countryData);
     } catch (error) {
