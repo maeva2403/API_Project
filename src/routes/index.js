@@ -17,7 +17,6 @@ const getAllCountries = async () => {
   return json;
 }
 
-
 // Fonction pour rechercher un pays par son nom
 const findCountryByName = (name) => (country) => {
   return country.name.common.toLowerCase() === name.toLowerCase();
