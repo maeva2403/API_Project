@@ -27,7 +27,7 @@ router.get('/country', async (req, res) => {
   const countries = await getAllCountries();
 
   if (countries.length === 0) {
-      response
+      res
           .status(404)
           .json({
             status: 404, 
@@ -42,7 +42,9 @@ router.get('/country', async (req, res) => {
     common_name : country.name.common,
     official_name: country.name.official,
     language: Object.values(country.languages),
-    region: country.region
+    region: country.region,
+    capital : country.capital,
+    currency: Object.keys(country.currencies)[0]
   });
 });
 
