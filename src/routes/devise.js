@@ -2,27 +2,37 @@ import { Router } from 'express';
 
 const router = Router();
 
-router.get('/convert', async (req, res) => {
-    const { base } = req.query;
-
-    if (!base) {
-        return res.status(400).json({ error: 'Missing parameter: base currency' });
-    }
-
+const getAllCurrencies = async () => {
     const url = `https://openexchangerates.org/api/latest.json?app_id=f6f4295c5d4842408952613fbaef9f08`;
-    
-    try {
-        const response = await fetch(url);
-        const json = await response.json();
-        res.json(json);
-    } catch (error) {
+      const options = {
+        method : 'GET',
+        headers: {
+          accept : 'application/json',
+      },
+    };
+  
+    const response = await fetch(url, options);
+    const json = await response.json();
+  
+    return json;
+}
+
+router.get('/convert', async (req, res) => {
+    const base = req.query;
+    const currencies = await getAllCurrencies();
+
+    if (currencies.length === 0) {
         res
             .status(404)
             .json({
-            status: 404, 
-            message: `Exchange rates not found`
-        });
+              status: 404, 
+              message: `We could not found a country with the name: ${countryName}`
+            });
     }
+    res.json({
+        base : currencies.base,
+        rates : currencies.rates
+      });
 });
 
 export default router;
