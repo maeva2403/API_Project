@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
 
-
     const countryInput = document.getElementById('country-input');
 
     // Fonction pour récupérer les informations sur le pays en fonction du nom du pays
