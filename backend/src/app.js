@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(logger({ level: process.env.NODE_ENV === 'test' ? 'error' : 'info' }));
 
-app.use('/', countriesRoutes);
-app.use('/', deviseRoutes);
+app.use('/api', countriesRoutes);
+app.use('/api', deviseRoutes);
 
 export default app;

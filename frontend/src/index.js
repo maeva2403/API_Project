@@ -1,82 +1,28 @@
-const fetchCountryInfo = async (countryName) => {
-    const response = await fetch(`/api/country?name=${countryName}`);
-    return response.json();
-};
-
-const fetchCurrencyInfo = async () => {
-    const response = await fetch('/api/convert');
-    return response.json();
-};
-
-// Fonction pour récupérer les langues
-const fetchLanguages = async () => {
-    // Implémentez la logique pour récupérer les langues depuis votre backend
-    // Retournez les langues sous forme de tableau
-    return ['French', 'English', 'Spanish']; // Exemple de données simulées
-};
-
 document.addEventListener('DOMContentLoaded', async () => {
-    let selectedLang;
-    const languageSelectElement = document.getElementById('language-select');
 
-    const languages = await fetchLanguages();
 
-    languages.forEach((language) => {
-        const languageOption = document.createElement('option');
-        languageOption.value = language;
-        languageOption.textContent = language;
-        languageSelectElement.appendChild(languageOption);
-    });
+    const countryInput = document.getElementById('country-input');
 
-    languageSelectElement.addEventListener('change', async (event) => {
-        selectedLang = event.target.value;
-        const projectsListElement = document.getElementById('projects-list');
-        const projectPanelElement = document.getElementById('project-panel');
-        projectsListElement.replaceChildren();
-        projectPanelElement.replaceChildren();
+    // Fonction pour récupérer les informations sur le pays en fonction du nom du pays
+    const fetchCountryInfo = async (countryName) => {
+        const response = await fetch(`/api/country?name=${countryName}`);
+        return response.json();
+    };
 
-        const projects = await fetchProjects(selectedLang);
-        projects.forEach((project) => {
-            const projectItem = document.createElement('li');
-            projectItem.textContent = project.title;
-            projectItem.dataset.pnId = project.id;
-            projectsListElement.appendChild(projectItem);
+    // Fonction pour récupérer les informations sur les devises en fonction de la devise de pays
+    const fetchCurrencyInfo = async (currency) => {
+        const response = await fetch(`/api/convert?base=${currency}`);
+        return response.json();
+    };
 
-            projectItem.addEventListener('click', async (event) => {
-                const selectedProject = document.querySelector('.selected');
-                selectedProject?.classList.remove('selected');
-                event.target.classList.add('selected');
+    // Mise à jour de la liste des projets
+    const updateProjectsList = async () => {
+        const countryName = countryInput.value; // Obtenez la valeur du champ de saisie de pays
 
-                const project = await fetchProject(event.target.dataset.pnId, selectedLang);
+        const countryInfo = await fetchCountryInfo(countryName);
+        const currency = countryInfo.currency; // Obtenez la devise du pays
 
-                projectPanelElement.replaceChildren();
-                const projectTitle = document.createElement('h2');
-                projectTitle.textContent = project.title;
-                const projectDescription = document.createElement('p');
-                projectDescription.innerHTML = `
-                    <strong>Common Name:</strong> ${project.common_name}<br>
-                    <strong>Official Name:</strong> ${project.official_name}<br>
-                    <strong>Language:</strong> ${project.language}<br>
-                    <strong>Region:</strong> ${project.region}<br>
-                    <strong>Capital:</strong> ${project.capital}<br>
-                    <strong>Currency:</strong> ${project.currency}<br>
-                    <strong>Base Currency:</strong> ${project.base}<br>
-                    <strong>Rates:</strong> ${JSON.stringify(project.rates)}<br>
-                `;
-                projectPanelElement.appendChild(projectTitle);
-                projectPanelElement.appendChild(projectDescription);
-            });
-        });
-    });
-
-    const fetchProjects = async (lang) => {
-        const countryInput = document.getElementById('country-input');
-        const countryName = countryInput.value;
-
-        const [countryInfo, currencyInfo] = await Promise.all([
-            fetchCountryInfo(countryName),
-            fetchCurrencyInfo()
-        ]);
+        const currencyInfo = await fetchCurrencyInfo(currency);
 
         const project = {
             title: 'Country Info',
@@ -91,6 +37,26 @@ document.addEventListener('DOMContentLoaded', async () => {
             rates: currencyInfo.rates
         };
 
-        return [project];
+        const projectTitle = document.createElement('h2');
+        projectTitle.textContent = project.title;
+        const projectDescription = document.createElement('p');
+        // projectDescription.classList.add('description')
+        projectDescription.innerHTML = `
+            <strong>Common Name:</strong> ${project.common_name}<br>
+            <strong>Official Name:</strong> ${project.official_name}<br>
+            <strong>Language:</strong> ${project.language}<br>
+            <strong>Region:</strong> ${project.region}<br>
+            <strong>Capital:</strong> ${project.capital}<br>
+            <strong>Currency:</strong> ${project.currency}<br>
+            <strong>Base Currency:</strong> ${project.base}<br>
+            <strong>Rates:</strong> ${JSON.stringify(project.rates)}<br>
+        `;
+        document.body.appendChild(projectTitle);
+        document.body.appendChild(projectDescription);
     };
+
+    // Écouteur d'événement pour le clic sur le bouton d'envoi
+    document.getElementById('submit-btn').addEventListener('click', async () => {
+        await updateProjectsList();
+    });
 });
