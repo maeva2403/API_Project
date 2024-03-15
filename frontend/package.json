@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "light-server -s . -p 9090 -w \"./**/*.html\""
+    "dev": "light-server -s ./src -p 9090 -x http://localhost:9090 --proxypath \"/routes\" -w \"src/**/*.js, src/**/*.html\" -w \"src/**/*.css\""
   },
   "author": "",
   "license": "ISC",
