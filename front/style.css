@@ -62,3 +62,12 @@ body, html {
 #submit-btn:hover {
     background-color: #5a7d1c;
 }
+.welcome-text p {
+    background-color: #0c4599;
+    color: white; /* Couleur du texte */
+    font-size: 25px; /* Taille de la police */
+    margin: 20px auto; /* Centrage et espacement vertical */
+    width: 80%; /* Largeur du texte */
+    text-align: center; /* Alignement du texte */
+    font-weight: bold;
+}
