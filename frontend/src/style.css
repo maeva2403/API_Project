@@ -1,5 +1,5 @@
 #background-image {
-    background-image: url("Monnaies_du_monde.jpg");
+    background-image: url("../Monnaies_du_monde.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(3px);
