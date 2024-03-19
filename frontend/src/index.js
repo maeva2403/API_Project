@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             <strong>Currency:</strong> ${countryInfo.currency}<br>
             <strong>Base Currency:</strong> ${currencyInfo.base}<br>
             <strong>Rates:</strong> ${JSON.stringify(currencyInfo.rates)}<br>
+            <strong>Latitude:</strong> ${countryInfo.latlng[0]}<br>
+            <strong>Longitude:</strong> ${countryInfo.latlng[1]}<br>
         `;
         projectPanelElement.appendChild(projectTitle);
         projectPanelElement.appendChild(projectDescription);
