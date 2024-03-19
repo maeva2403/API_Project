@@ -44,7 +44,8 @@ router.get('/country', async (req, res) => {
     language: Object.values(country.languages),
     region: country.region,
     capital : country.capital,
-    currency: Object.keys(country.currencies)[0]
+    currency: Object.keys(country.currencies)[0],
+    latlng: country.latlng
   });
 });
 
