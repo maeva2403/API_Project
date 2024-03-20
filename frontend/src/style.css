@@ -1,10 +1,10 @@
 h1 {
-    background-color: #6B8E23;
-    color: #f2f2f2;
+    background-color: #00008B; /* Bleu foncé */
+    color: #ffffff; /* Blanc */
     text-align: center;
     margin: 0;
-    padding: 20px 0;
-    font-size: 45px;
+    padding: 10px 0; /* Réduction de la taille du rembourrage */
+    font-size: 30px; /* Taille de police réduite */
 }
 
 body, html {
@@ -49,6 +49,7 @@ body, html {
 #submit-btn:hover {
     background-color: #5a7d1c;
 }
+
 .welcome-text p {
     background-color: #0c4599;
     color: white; /* Couleur du texte */
@@ -72,9 +73,14 @@ body, html {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+#project-panel h2 {
+    text-align: center; /* Vous pouvez supprimer cette ligne si nécessaire */
+    margin: 0 auto; /* Centre le titre horizontalement */
+}
+
 #project-panel p {
-    text-align: justify; /* Justifier le texte */
-    overflow-wrap: break-word; /* Autoriser le retour à la ligne */
-    max-width: 80%; /* 80% de la largeur du panel */
-    margin: 0 10%; /* 10% de marge à gauche et à droite */
+    text-align: justify;
+    overflow-wrap: break-word;
+    max-width: 80%;
+    margin: 20px 10% 0 10%; /* Ajoute une marge en haut de 10px */
 }

@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const projectTitle = document.createElement('h2');
         projectTitle.textContent = 'Country Info';
+
         const projectDescription = document.createElement('p');
         projectDescription.innerHTML = `
             <strong>Common Name:</strong> ${countryInfo.common_name}<br>
