@@ -67,4 +67,71 @@ describe('GET /api/convert', () => {
     assert.strictEqual(response.body.base, baseCurrency);
     assert.ok(response.body.rates);
   });
+
+  it('should return conversion rates with 200 status code', async () => {
+    // Send a GET request to the API without specifying a base currency
+    const response = await request(app).get(`/api/convert`);
+
+    // Check if the response has a status code of 200 (OK)
+    assert.strictEqual(response.status, 200);
+
+    // Check if the response body includes conversion rates and default base currency value (USD)
+    assert.strictEqual(response.body.base, 'USD');
+    assert.ok(response.body.rates);
+  });
+});
+
+// Test pour POST
+describe('POST /api/country', () => {
+  it('should create a new country with 201 status code if valid data provided', async () => {
+    const newCountryData = {
+      common_name: 'New Country',
+      official_name: 'Official Name',
+      // Ajoutez d'autres propriétés nécessaires pour créer un nouveau pays
+    };
+
+    const response = await request(app)
+      .post('/api/country')
+      .send(newCountryData);
+
+    assert.strictEqual(response.status, 201);
+    // Vérifiez si la réponse contient les détails du nouveau pays créé
+    assert.ok(response.body.id); // Assurez-vous que le nouvel ID du pays est retourné
+  });
+});
+
+// Test pour PUT
+describe('PUT /api/country/:id', () => {
+  it('should update an existing country with 200 status code if valid data provided', async () => {
+    const updatedCountryData = {
+      common_name: 'Updated Country Name',
+      // Ajoutez d'autres propriétés mises à jour du pays
+    };
+
+    // Supposons que vous avez déjà un ID de pays existant à mettre à jour
+    const existingCountryId = '123456';
+
+    const response = await request(app)
+      .put(`/api/country/${existingCountryId}`)
+      .send(updatedCountryData);
+
+    assert.strictEqual(response.status, 200);
+    // Vérifiez si la réponse contient les détails du pays mis à jour
+    assert.strictEqual(response.body.common_name, updatedCountryData.common_name);
+  });
+});
+
+// Test pour DELETE
+describe('DELETE /api/country/:id', () => {
+  it('should delete an existing country with 204 status code if valid ID provided', async () => {
+    // Supposons que vous avez déjà un ID de pays existant à supprimer
+    const existingCountryId = '123456';
+
+    const response = await request(app)
+      .delete(`/api/country/${existingCountryId}`);
+
+    assert.strictEqual(response.status, 204);
+    // Vérifiez si la réponse est vide
+    assert.strictEqual(response.body, ''); // La réponse doit être vide pour un succès de suppression
+  });
 });

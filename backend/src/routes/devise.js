@@ -26,7 +26,7 @@ router.get('/convert', async (req, res) => {
             .status(404)
             .json({
               status: 404, 
-              message: `We could not found a country with the name: ${countryName}`
+              message: `Currency data not found.`
             });
     }
     res.json({
