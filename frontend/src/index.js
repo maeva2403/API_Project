@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const projectPanelElement = document.getElementById('project-panel');
     const submitButton = document.getElementById('submit-btn');
     const currencySelect = document.getElementById('currency-select');
+    const amountInput = document.getElementById('amount');
 
     // Mise à jour du panneau des projets
     const updateProjectsList = async () => {
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const currency = countryInfo.currency;
         const currencyInfo = await fetchCurrencyInfo(currency);
 
-        projectPanelElement.replaceChildren(); // Remplace les enfants du panneau des projets
+        projectPanelElement.innerHTML = ''; // Efface le contenu précédent du panneau des projets
 
         // Affichage des informations sur le pays sans les taux ni la devise de base
         const projectTitle = document.createElement('h2');
@@ -58,8 +59,25 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         projectPanelElement.appendChild(ratesTitle);
         projectPanelElement.appendChild(ratesDescription);
+
+        // Mise à jour du résultat de la conversion
+        const amount = amountInput.value;
+        const convertedAmount = amount * selectedRate;
+        updateConversionResult(convertedAmount.toFixed(2));
     };
-    
+
+    // Fonction pour mettre à jour le résultat de la conversion
+    const updateConversionResult = (result) => {
+        const resultTitle = document.createElement('h2');
+        resultTitle.textContent = 'Conversion Result';
+
+        const resultDescription = document.createElement('p');
+        resultDescription.textContent = `Conversion Result: ${result}`;
+
+        projectPanelElement.appendChild(resultTitle);
+        projectPanelElement.appendChild(resultDescription);
+    };
+
     // Événement pour le clic sur le bouton de soumission
     submitButton.addEventListener('click', async () => {
         await updateProjectsList();

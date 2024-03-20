@@ -4,6 +4,26 @@ body, html {
     overflow: auto;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0c4599;
+    color: #ffffff;
+    padding: 10px 20px;
+}
+
+.logo {
+    margin-right: auto;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 30px;
+    flex-grow: 1;
+    text-align: center;
+}
+
 .input-container {
     background-color: white;
     border-radius: 10px;
@@ -17,21 +37,27 @@ body, html {
 }
 
 .input-container p {
-    margin: 0 0 20px 0;
+    margin: 0 0 20px;
     color: #333;
     font-size: 18px;
 }
 
-#country-input {
-    margin: 10px 0;
-    padding: 10px;
-    width: calc(100% - 22px);
+.input-container label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.input-container input,
+.input-container select {
+    margin-bottom: 20px;
+    padding: 8px;
+    width: calc(100% - 16px);
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
-#submit-btn {
-    background-color: #808080; /* Gris */
+.input-container button {
+    background-color: #808080;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -39,8 +65,8 @@ body, html {
     cursor: pointer;
 }
 
-#submit-btn:hover {
-    background-color: #b19cd9; /* Violet pastel */
+.input-container button:hover {
+    background-color: #b19cd9;
 }
 
 #project-panel {
@@ -57,8 +83,8 @@ body, html {
 }
 
 #project-panel h2 {
-    text-align: center; /* Vous pouvez supprimer cette ligne si nécessaire */
-    margin: 0 auto; /* Centre le titre horizontalement */
+    text-align: center;
+    margin: 0 auto;
 }
 
 #project-panel p {
@@ -66,24 +92,4 @@ body, html {
     overflow-wrap: break-word;
     max-width: 80%;
     margin: 20px 10% 0 10%; /* Ajoute une marge en haut de 20px */
-}
-
-.header {
-    display: flex; /* Utiliser flexbox pour aligner les éléments */
-    justify-content: space-between; /* Répartir l'espace disponible entre les éléments */
-    align-items: center; /* Centrer verticalement les éléments */
-    background-color: #0c4599; /* Bleu foncé */
-    color: #ffffff; /* Blanc */
-    padding: 10px 20px; /* Espacement autour du titre et du logo */
-}
-
-.logo {
-    margin-right: auto; /* Pousse le logo à gauche autant que possible */
-}
-
-.header h1 {
-    margin: 0; /* Supprimer les marges par défaut */
-    font-size: 30px; /* Taille de police du titre principal */
-    flex-grow: 1; /* Permettre au titre de s'étendre et de remplir l'espace restant */
-    text-align: center; /* Centrer le texte horizontalement */
 }
