@@ -72,7 +72,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         resultTitle.textContent = 'Conversion Result';
 
         const resultDescription = document.createElement('p');
-        resultDescription.textContent = `Conversion Result: ${result}`;
+        const strongElement = document.createElement('strong');
+        strongElement.textContent = 'Conversion Result: ';
+        resultDescription.appendChild(strongElement);
+        resultDescription.appendChild(document.createTextNode(result));
+
 
         projectPanelElement.appendChild(resultTitle);
         projectPanelElement.appendChild(resultDescription);
