@@ -13,7 +13,6 @@ body, html {
     overflow: auto;
 }
 
-
 .input-container {
     background-color: white;
     border-radius: 10px;
@@ -60,22 +59,6 @@ body, html {
     font-weight: bold;
 }
 
-#project-panel {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    padding: 20px;
-    width: 60%;
-    margin: auto;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-#project-panel p {
-    text-align: justify;
-}
 #project-panel {
     display: flex;
     flex-direction: column;
