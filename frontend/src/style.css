@@ -10,9 +10,10 @@ body, html {
     padding: 20px;
     width: calc(35vw - 120px); /* Utilisation de vw pour une largeur relative */
     box-shadow: 8px 4px 4px 8px rgba(0,0,0,0.1);
-    margin: 40px; /* Ajouter une marge de 30px autour */
+    margin: 50px; /* Ajouter une marge de 50px autour */
     float: right; /* Aligner le conteneur à droite */
     text-align: center;
+    position: relative; /* Définir la position relative pour le positionnement absolu du rates-panel */
 }
 
 .input-container p {
@@ -51,7 +52,7 @@ body, html {
     border-radius: 10px;
     padding: 20px;
     width: calc(60vw - 120px); /* Utilisation de vw pour une largeur relative */
-    margin: 40px; /* Ajouter une marge de 30px autour */
+    margin: 50px; /* Ajouter une marge de 50px autour */
     box-shadow: 8px 4px 4px 8px rgba(0,0,0,0.1);
 }
 
@@ -64,7 +65,7 @@ body, html {
     text-align: justify;
     overflow-wrap: break-word;
     max-width: 80%;
-    margin: 20px 10% 0 10%; /* Ajoute une marge en haut de 10px */
+    margin: 20px 10% 0 10%; /* Ajoute une marge en haut de 20px */
 }
 
 .header {
