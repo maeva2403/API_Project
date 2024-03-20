@@ -18,7 +18,7 @@ const getAllCurrencies = async () => {
 }
 
 router.get('/convert', async (req, res) => {
-    const base = req.query;
+    const base = req.query.base;
     const currencies = await getAllCurrencies();
 
     if (currencies.length === 0) {
