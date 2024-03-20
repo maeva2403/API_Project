@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  title: Documentation de l'API
+  version: 1.0.0
+paths:
+  /country:
+    get:
+      summary: Obtenir les informations sur un pays
+      responses:
+        '200':
+          description: Succès
+        '404':
+          description: Pays non trouvé
+  /convert:
+    get:
+      summary: Convertir une devise
+      parameters:
+        - in: query
+          name: base
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succès
+        '404':
+          description: Données de devise non trouvées
