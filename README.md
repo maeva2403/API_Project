@@ -47,7 +47,7 @@ Dans le cadre du module "Intégration de données connectées" du Master [MIASH]
 4. Lancez le serveur :
 
    ```bash
-   npm start
+   npm run dev
    ```
 
 5. Ouvrez votre navigateur et accédez à l'URL suivante :
