@@ -3,12 +3,12 @@ import assert from 'node:assert';
 import request from 'supertest';
 import app from '../src/app.js';
 
-// describe('GET /', () => {
-//   it('should return homepage with 200 status code', async () => {
-//     const response = await request(app).get('/');
-//     assert.strictEqual(response.status, 200);
-//   });
-// });
+describe('GET /', () => {
+  it('should return homepage with 200 status code', async () => {
+    const response = await request(app).get('/');
+    assert.strictEqual(response.status, 200);
+  });
+});
 
 // Description du test
 describe('GET /api/country', () => {
@@ -23,7 +23,7 @@ describe('GET /api/country', () => {
     assert.strictEqual(response.status, 200);
 
     // Vérifier si la propriété common_name dans le corps de la réponse est égale à 'France'
-    assert.strictEqual(response.body.common_name, 'France');
+    assert.strictEqual(response.body.common_name, countryName);
   });
 
   // Test with a blind name
@@ -45,3 +45,26 @@ describe('GET /api/country', () => {
   });
 });
 
+describe('Error Handling', () => {
+  it('should return 404 for non-existing routes', async () => {
+    const response = await request(app).get('/api/non-existing-route');
+    assert.strictEqual(response.status, 404);
+  });
+});
+
+describe('GET /api/convert', () => {
+  it('should return conversion rates with 200 status code if valid base currency provided', async () => {
+    // Base currency for testing
+    const baseCurrency = 'USD';
+
+    // Send a GET request to the API to retrieve conversion rates
+    const response = await request(app).get(`/api/convert?base=${baseCurrency}`);
+
+    // Check if the response has a status code of 200 (OK)
+    assert.strictEqual(response.status, 200);
+
+    // Check if the response contains the base currency and rates
+    assert.strictEqual(response.body.base, baseCurrency);
+    assert.ok(response.body.rates);
+  });
+});
