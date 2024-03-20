@@ -1,9 +1,10 @@
 import { Router } from 'express';
 
 const router = Router();
+import { openExchangeRatesApiKey } from '../../apiConfig.js';
 
 const getAllCurrencies = async () => {
-    const url = `https://openexchangerates.org/api/latest.json?app_id=f6f4295c5d4842408952613fbaef9f08`;
+    const url = `https://openexchangerates.org/api/latest.json?app_id=${openExchangeRatesApiKey}`;
       const options = {
         method : 'GET',
         headers: {
