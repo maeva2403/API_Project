@@ -20,9 +20,9 @@ h1 {
 }
 
 body, html {
-    height: 100%;
     margin: 0;
-    overflow: hidden;
+    padding: 0;
+    overflow: auto; /* Remplacer "hidden" par "auto" */
 }
 
 
@@ -71,3 +71,40 @@ body, html {
     text-align: center; /* Alignement du texte */
     font-weight: bold;
 }
+
+#project-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    width: 60%;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#project-panel p {
+    text-align: justify;
+}
+#project-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#project-panel p {
+    text-align: justify; /* Justifier le texte */
+    overflow-wrap: break-word; /* Autoriser le retour à la ligne */
+    max-width: 80%; /* 80% de la largeur du panel */
+    margin: 0 10%; /* 10% de marge à gauche et à droite */
+}
+
