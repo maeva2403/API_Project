@@ -1,12 +1,3 @@
-h1 {
-    background-color: #00008B; /* Bleu foncé */
-    color: #ffffff; /* Blanc */
-    text-align: center;
-    margin: 0;
-    padding: 10px 0; /* Réduction de la taille du rembourrage */
-    font-size: 30px; /* Taille de police réduite */
-}
-
 body, html {
     height: 100%;
     margin: 0;
@@ -19,7 +10,8 @@ body, html {
     padding: 20px;
     width: 300px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin: 20px auto;
+    margin: 30px; /* Ajouter une marge de 20px pour le positionner à droite */
+    float: right; /* Aligner le conteneur à droite */
     text-align: center;
 }
 
@@ -38,7 +30,7 @@ body, html {
 }
 
 #submit-btn {
-    background-color: #6B8E23;
+    background-color: #808080; /* Gris */
     color: white;
     padding: 10px 20px;
     border: none;
@@ -47,17 +39,7 @@ body, html {
 }
 
 #submit-btn:hover {
-    background-color: #5a7d1c;
-}
-
-.welcome-text p {
-    background-color: #0c4599;
-    color: white; /* Couleur du texte */
-    font-size: 25px; /* Taille de la police */
-    margin: 20px auto; /* Centrage et espacement vertical */
-    width: 80%; /* Largeur du texte */
-    text-align: center; /* Alignement du texte */
-    font-weight: bold;
+    background-color: #b19cd9; /* Violet pastel */
 }
 
 #project-panel {
@@ -69,7 +51,7 @@ body, html {
     border-radius: 10px;
     padding: 20px;
     width: 60%;
-    margin: auto;
+    margin: 30px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
@@ -83,4 +65,24 @@ body, html {
     overflow-wrap: break-word;
     max-width: 80%;
     margin: 20px 10% 0 10%; /* Ajoute une marge en haut de 10px */
+}
+
+.header {
+    display: flex; /* Utiliser flexbox pour aligner les éléments */
+    justify-content: space-between; /* Répartir l'espace disponible entre les éléments */
+    align-items: center; /* Centrer verticalement les éléments */
+    background-color: #0c4599; /* Bleu foncé */
+    color: #ffffff; /* Blanc */
+    padding: 10px 20px; /* Espacement autour du titre et du logo */
+}
+
+.logo {
+    margin-right: auto; /* Pousse le logo à gauche autant que possible */
+}
+
+.header h1 {
+    margin: 0; /* Supprimer les marges par défaut */
+    font-size: 30px; /* Taille de police du titre principal */
+    flex-grow: 1; /* Permettre au titre de s'étendre et de remplir l'espace restant */
+    text-align: center; /* Centrer le texte horizontalement */
 }
