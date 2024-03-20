@@ -132,3 +132,6 @@ temp/
 # IntelliJ
 out/
 .idea/
+
+#api keys
+.env

@@ -1,7 +1,10 @@
 import { Router } from 'express';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const router = Router();
-import { openExchangeRatesApiKey } from '../../apiConfig.js';
+const openExchangeRatesApiKey = process.env.OPEN_EXCHANGE_RATES_API_KEY;
 
 const getAllCurrencies = async () => {
     const url = `https://openexchangerates.org/api/latest.json?app_id=${openExchangeRatesApiKey}`;
