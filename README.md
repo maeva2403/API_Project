@@ -6,13 +6,15 @@ Dans le cadre du module "Intégration de données connectées" du Master [MIASH]
 
 - Affichage des informations sur les pays : le nom commun, le nom officiel, la capitale, la région, la langue officielle et la devise;
 - Affichage des taux de change entre la devise d'un pays sélectionné et les autres devises mondiales;
+- Calculer le montant à converti de la devise d'un pays sélectionné à une autre devise mondiale;
 - Interface conviviale et intuitive pour une expérience utilisateur optimale.
 
 ## Technologies Utilisées
 
 - **Frontend**:
-  - HTML, CSS, JavaScript
-  - Framework JavaScript (par exemple : React, Vue.js, Angular)
+  - HTML
+  - CSS
+  - JavaScript
 
 - **Backend**:
   - Node.js
@@ -64,7 +66,3 @@ Les contributions sont les bienvenues ! Si vous souhaitez contribuer à ce proje
 4. Commit de vos modifications (`git commit -am 'Ajout d'une nouvelle fonctionnalité'`)
 5. Push vers la branche (`git push origin feature/nouvelle-fonctionnalite`)
 6. Créez une nouvelle Pull Request
-
-## Licence
-
-Ce projet est sous licence MIT. Pour plus d'informations, veuillez consulter le fichier [LICENSE](LICENSE).
