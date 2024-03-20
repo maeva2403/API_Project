@@ -6,7 +6,7 @@ Dans le cadre du module "Intégration de données connectées" du Master [MIASH]
 
 - Affichage des informations sur les pays : le nom commun, le nom officiel, la capitale, la région, la langue officielle et la devise;
 - Affichage des taux de change entre la devise d'un pays sélectionné et les autres devises mondiales;
-- Calculer le montant à converti de la devise d'un pays sélectionné à une autre devise mondiale;
+- Calculer le montant à convertir de la devise d'un pays sélectionné à une autre devise mondiale;
 - Interface conviviale et intuitive pour une expérience utilisateur optimale.
 
 ## Technologies Utilisées
