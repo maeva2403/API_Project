@@ -8,9 +8,9 @@ body, html {
     background-color: white;
     border-radius: 10px;
     padding: 20px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin: 30px; /* Ajouter une marge de 20px pour le positionner à droite */
+    width: calc(35vw - 120px); /* Utilisation de vw pour une largeur relative */
+    box-shadow: 8px 4px 4px 8px rgba(0,0,0,0.1);
+    margin: 40px; /* Ajouter une marge de 30px autour */
     float: right; /* Aligner le conteneur à droite */
     text-align: center;
 }
@@ -50,9 +50,9 @@ body, html {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     padding: 20px;
-    width: 60%;
-    margin: 30px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: calc(65vw - 120px); /* Utilisation de vw pour une largeur relative */
+    margin: 40px; /* Ajouter une marge de 30px autour */
+    box-shadow: 8px 4px 4px 8px rgba(0,0,0,0.1);
 }
 
 #project-panel h2 {
