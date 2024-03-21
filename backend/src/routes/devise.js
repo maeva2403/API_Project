@@ -1,10 +1,9 @@
 import { Router } from 'express';
-import 'dotenv/config';
 
 const router = Router();
 
 const getAllCurrencies = async () => {
-    const url = `https://openexchangerates.org/api/latest.json?app_id=${process.env.OPEN_EXCHANGE_RATES_API_KEY}`;
+    const url = `https://openexchangerates.org/api/latest.json?app_id=f6f4295c5d4842408952613fbaef9f08`;
       const options = {
         method : 'GET',
         headers: {
