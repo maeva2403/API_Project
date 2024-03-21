@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const ratesDescription = document.createElement('p');
         ratesDescription.innerHTML = `
-            <strong>Selected Currency:</strong> ${selectedCurrency}<br>
-            <strong>Selected Rate:</strong> ${selectedRate}<br>
+            <strong>Currency:</strong> ${selectedCurrency}<br>
+            <strong>Rate:</strong> ${selectedRate}<br>
         `;
 
         projectPanelElement.appendChild(ratesTitle);
