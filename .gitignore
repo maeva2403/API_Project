@@ -134,4 +134,4 @@ out/
 .idea/
 
 #api keys
-.env
+#.env
