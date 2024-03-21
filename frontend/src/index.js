@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const countryInput = document.getElementById('country-input');
     const projectPanelElement = document.getElementById('project-panel');
     const submitButton = document.getElementById('submit-btn');
-    const currencySelect = document.getElementById('currency-select');
     const amountInput = document.getElementById('amount');
 
     // Mise à jour du panneau des projets
@@ -45,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         projectPanelElement.appendChild(projectDescription);
 
         // Affichage de la devise sélectionnée avec son taux
-        const selectedCurrency = currencySelect.value;
+        const selectedCurrency = countryInfo.currency;
         const selectedRate = currencyInfo.rates[selectedCurrency];
 
         const ratesTitle = document.createElement('h2');
