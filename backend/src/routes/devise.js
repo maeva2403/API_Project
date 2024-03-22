@@ -1,3 +1,51 @@
+/**
+ * @swagger
+ * tags:
+ *   name: Currency
+ *   description: Operations related to currency conversion
+ */
+
+/**
+ * @swagger
+ * /api/convert:
+ *   get:
+ *     summary: Fetch currency conversion rates
+ *     description: Fetches currency conversion rates based on the provided base currency (USD).
+ *     responses:
+ *       '200':
+ *         description: OK. Returns the currency conversion rates.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 base:
+ *                   type: string
+ *                   description: The base currency for conversion (USD).
+ *                 rates:
+ *                   type: object
+ *                   description: The conversion rates for various currencies.
+ *       '404':
+ *         description: Currency data not found.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: integer
+ *                   example: 404
+ *                   description: The HTTP status code.
+ *                 message:
+ *                   type: string
+ *                   example: Currency data not found.
+ *                   description: Error message indicating the currency data was not found.
+ */
+
+/**
+ * @module routes/devise
+ */
+
 // Fetching currency conversion rates using the OpenExchangeRates API with base currency as USD
 
 import { Router } from 'express';

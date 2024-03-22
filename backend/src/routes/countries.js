@@ -1,3 +1,69 @@
+/**
+ * @swagger
+ * /api/country:
+ *   get:
+ *     summary: Fetch country information based on country name
+ *     description: Fetches primary information about a country based on the provided country name.
+ *     parameters:
+ *       - name: name
+ *         in: query
+ *         description: The name of the country.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. Returns the country information.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 common_name:
+ *                   type: string
+ *                   description: The common name of the country.
+ *                 official_name:
+ *                   type: string
+ *                   description: The official name of the country.
+ *                 language:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *                   description: The language(s) spoken in the country.
+ *                 region:
+ *                   type: string
+ *                   description: The region of the country.
+ *                 capital:
+ *                   type: string
+ *                   description: The capital city of the country.
+ *                 currency:
+ *                   type: string
+ *                   description: The currency of the country.
+ *                 latlng:
+ *                   type: array
+ *                   items:
+ *                     type: number
+ *                   description: The latitude and longitude coordinates of the country.
+ *       '404':
+ *         description: Country not found.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: integer
+ *                   example: 404
+ *                   description: The HTTP status code.
+ *                 message:
+ *                   type: string
+ *                   example: Country not found.
+ *                   description: Error message indicating the country was not found.
+ */
+
+/**
+ * @module routes/countries
+ */
+
 // Calling the REST Countries API to retrieve information about countries
 
 import { Router } from 'express';
