@@ -112,7 +112,6 @@ Pour sécuriser votre clé d'API et la garder hors de votre code source, vous po
 
 En suivant ces étapes, vous sécuriserez votre clé d'API et pourrez l'utiliser de manière sécurisée dans votre application.
 ```
-```
 
 ## Exécution des tests
 
