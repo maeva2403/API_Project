@@ -2,7 +2,6 @@
 
 import { Router } from 'express';
 
-
 const router = Router();
 
 // unction to fetch data of all countries

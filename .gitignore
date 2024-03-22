@@ -133,5 +133,5 @@ temp/
 out/
 .idea/
 
-#api keys
+# Api keys in .env
 .env
