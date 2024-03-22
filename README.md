@@ -66,3 +66,30 @@ Les contributions sont les bienvenues ! Si vous souhaitez contribuer à ce proje
 4. Commit de vos modifications (`git commit -am 'Ajout d'une nouvelle fonctionnalité'`)
 5. Push vers la branche (`git push origin feature/nouvelle-fonctionnalite`)
 6. Créez une nouvelle Pull Request
+
+```markdown
+## Accéder à Swagger
+
+Vous pouvez accéder à la documentation Swagger de l'API en suivant les étapes suivantes :
+
+1. Assurez-vous que le serveur est en cours d'exécution en exécutant la commande suivante dans votre terminal :
+
+   ```bash
+   npm run dev
+   ```
+
+2. Ouvrez votre navigateur et accédez à l'URL suivante :
+
+   ```
+   http://localhost:3000/api-docs
+   ```
+
+## Installation des packages nécessaires
+
+Assurez-vous d'avoir installé les packages `swagger-ui-express` et `swagger-jsdoc` en exécutant la commande suivante dans votre terminal :
+
+```bash
+npm install swagger-ui-express swagger-jsdoc --save
+```
+```
+Cette section indique aux utilisateurs comment accéder à la documentation Swagger de l'API et leur indique également qu'ils doivent installer les packages nécessaires.
