@@ -58,6 +58,21 @@
  *                   type: string
  *                   example: Country not found.
  *                   description: Error message indicating the country was not found.
+ *       '500':
+ *         description: Internal Server Error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: integer
+ *                   example: 500
+ *                   description: The HTTP status code.
+ *                 message:
+ *                   type: string
+ *                   example: Internal Server Error.
+ *                   description: Error message indicating an internal server error occurred.
  */
 
 /**
@@ -70,7 +85,7 @@ import { Router } from 'express';
 
 const router = Router();
 
-// unction to fetch data of all countries
+// Function to fetch data of all countries
 const getAllCountries = async () => {
   // URL for fetching country data
   const url = `https://restcountries.com/v3.1/all`;
@@ -85,6 +100,11 @@ const getAllCountries = async () => {
 
   // Fetching data from the API
   const response = await fetch(url, options);
+
+  // Handling the case when an error occurs during the fetch request
+  if (!response.ok) {
+    throw new Error('Failed to fetch country data');
+  }
 
   // Parsing the JSON response
   const json = await response.json();
@@ -101,52 +121,60 @@ const findCountryByName = (name) => (country) => {
 
 // Route handler for GET requests to '/country'
 router.get('/country', async (req, res) => {
-  // Extracting the country name from the query parameters
-  const countryName = req.query.name;
+  try {
+    // Extracting the country name from the query parameters
+    const countryName = req.query.name;
 
-  // Fetching data of all countries
-  const countries = await getAllCountries();
+    // Fetching data of all countries
+    const countries = await getAllCountries();
 
-  // Handling the case when no country name is provided in the query parameters
-  if (!countryName) {
-    // Retrieving details of the first country
-    const firstCountry = countries[0];
-    
-    // Sending JSON response with details of the first country
-    return res.json({
-      common_name: firstCountry.name.common,
-      official_name: firstCountry.name.official,
-      language: Object.values(firstCountry.languages),
-      region: firstCountry.region,
-      capital: firstCountry.capital,
-      currency: Object.keys(firstCountry.currencies)[0],
-      latlng: firstCountry.latlng
-      // You can add more properties of the first country here
+    // Handling the case when no country name is provided in the query parameters
+    if (!countryName) {
+      // Retrieving details of the first country
+      const firstCountry = countries[0];
+      
+      // Sending JSON response with details of the first country
+      return res.json({
+        common_name: firstCountry.name.common,
+        official_name: firstCountry.name.official,
+        language: Object.values(firstCountry.languages),
+        region: firstCountry.region,
+        capital: firstCountry.capital,
+        currency: Object.keys(firstCountry.currencies)[0],
+        latlng: firstCountry.latlng
+        // You can add more properties of the first country here
+      });
+    };
+
+    // Finding the country object by name
+    const country = countries.find(findCountryByName(countryName));
+
+    // Handling the case when the country is not found
+    if (!country) {
+      // Sending a 404 response with a message indicating that the country was not found
+      return res.status(404).json({
+        status: 404,
+        message: `Country '${countryName}' not found`
+      });
+    }
+
+    // Sending JSON response with details of the found country
+    res.json({
+      common_name: country.name.common,
+      official_name: country.name.official,
+      language: Object.values(country.languages),
+      region: country.region,
+      capital: country.capital,
+      currency: Object.keys(country.currencies)[0],
+      latlng: country.latlng
     });
-  };
-
-  // Finding the country object by name
-  const country = countries.find(findCountryByName(countryName));
-
-  // Handling the case when the country is not found
-  if (!country) {
-    // Sending a 404 response with a message indicating that the country was not found
-    return res.status(404).json({
-      status: 404,
-      message: `Country '${countryName}' not found`
+  } catch (error) {
+    // Sending a 500 response with a message indicating an internal server error occurred
+    res.status(500).json({
+      status: 500,
+      message: 'Internal Server Error'
     });
   }
-
-  // Sending JSON response with details of the found country
-  res.json({
-    common_name: country.name.common,
-    official_name: country.name.official,
-    language: Object.values(country.languages),
-    region: country.region,
-    capital: country.capital,
-    currency: Object.keys(country.currencies)[0],
-    latlng: country.latlng
-  });
 });
 
 // Exporting the router instance

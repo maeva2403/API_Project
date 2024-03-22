@@ -25,6 +25,21 @@
  *                 rates:
  *                   type: object
  *                   description: The conversion rates for various currencies.
+ *       '400':
+ *         description: Bad Request. Invalid API key or other client error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: integer
+ *                   example: 400
+ *                   description: The HTTP status code.
+ *                 message:
+ *                   type: string
+ *                   example: Bad Request. Invalid API key.
+ *                   description: Error message indicating the client error.
  *       '404':
  *         description: Currency data not found.
  *         content:
@@ -40,6 +55,21 @@
  *                   type: string
  *                   example: Currency data not found.
  *                   description: Error message indicating the currency data was not found.
+ *       '500':
+ *         description: Internal Server Error. Failed to fetch currency data.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: integer
+ *                   example: 500
+ *                   description: The HTTP status code.
+ *                 message:
+ *                   type: string
+ *                   example: Internal Server Error. Failed to fetch currency data.
+ *                   description: Error message indicating the server error.
  */
 
 /**
@@ -76,24 +106,33 @@ const getAllCurrencies = async () => {
 
 // Route handler for GET requests to '/convert'
 router.get('/convert', async (req, res) => {
-    // Fetch all currencies
-    const currencies = await getAllCurrencies();
+    try {
+        // Fetch all currencies
+        const currencies = await getAllCurrencies();
 
-    // Check if currency data is available
-    if (!currencies || !currencies.rates) {
-        // Return 404 status with error message if no currency data found
-        res.status(404).json({
-            status: 404,
-            message: `Currency data not found.`
+        // Check if currency data is available
+        if (!currencies || !currencies.rates) {
+            // Return 404 status with error message if no currency data found
+            res.status(404).json({
+                status: 404,
+                message: `Currency data not found.`
+            });
+            return;
+        }
+
+        // Send JSON response with base currency and rates
+        res.json({
+            base: currencies.base,
+            rates: currencies.rates
         });
-        return;
+    } catch (error) {
+        // Handle server error
+        console.error(error);
+        res.status(500).json({
+            status: 500,
+            message: `Internal Server Error. Failed to fetch currency data.`
+        });
     }
-
-    // Send JSON response with base currency and rates
-    res.json({
-        base: currencies.base,
-        rates: currencies.rates
-    });
 });
 
 export default router;
