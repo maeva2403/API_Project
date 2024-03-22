@@ -1,7 +1,7 @@
 body {
     background-image: url('money.png');
-    background-size: cover; /* Ajuste la taille de l'image pour remplir l'écran */
-    background-position: center; /* Centre l'image sur l'écran */
+    background-size: cover; 
+    background-position: center;
 }
 
 body, html {
@@ -34,12 +34,12 @@ body, html {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     padding: 20px;
-    width: calc(35vw - 120px); /* Utilisation de vw pour une largeur relative */
+    width: calc(35vw - 120px);
     box-shadow: 8px 4px 4px 8px rgba(0,0,0,0.1);
-    margin: 50px; /* Ajouter une marge de 50px autour */
-    float: right; /* Aligner le conteneur à droite */
+    margin: 50px;
+    float: right;
     text-align: center;
-    position: relative; /* Définir la position relative pour le positionnement absolu du rates-panel */
+    position: relative;
 }
 
 .input-container p {
@@ -83,8 +83,8 @@ body, html {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     padding: 20px;
-    width: calc(60vw - 120px); /* Utilisation de vw pour une largeur relative */
-    margin: 50px; /* Ajouter une marge de 50px autour */
+    width: calc(60vw - 120px);
+    margin: 50px;
     box-shadow: 8px 4px 4px 8px rgba(0,0,0,0.1);
 }
 
@@ -97,5 +97,5 @@ body, html {
     text-align: justify;
     overflow-wrap: break-word;
     max-width: 80%;
-    margin: 20px 10% 0 10%; /* Ajoute une marge en haut de 20px */
+    margin: 20px 10% 0 10%;
 }
