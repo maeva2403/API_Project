@@ -1,4 +1,5 @@
 // Testing our application's API endpoints
+
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
 import request from 'supertest';
@@ -79,7 +80,7 @@ describe('Error Handling', () => {
   });
 });
 
-// Testing the conversion API endpoint
+// Testing the currency API endpoint
 describe('GET /api/convert', () => {
   // Test for fetching conversion rates with default base currency value (USD)
   it('should return conversion rates with 200 status code', async () => {
