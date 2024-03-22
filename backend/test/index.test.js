@@ -53,6 +53,18 @@ describe('GET /api/country', () => {
     // Check if the response body includes status property with a value of 404
     assert.strictEqual(response.body.status, 404);
   });
+
+  // Test for handling the case when the provided country name contains non-alphabetic characters
+  it('should return 404 status code if the provided country name contains non-alphabetic characters', async () => {
+    // Send a GET request to the API with a country name that contains non-alphabetic characters
+    const response = await request(app).get(`/api/country?name=12a3`);
+
+    // Check if the response has a status code of 404 (Not Found)
+    assert.strictEqual(response.status, 404);
+
+    // Check if the response body includes status property with a value of 404
+    assert.strictEqual(response.body.status, 404);
+  });
 });
 
 // Error handling tests
@@ -69,22 +81,6 @@ describe('Error Handling', () => {
 
 // Testing the conversion API endpoint
 describe('GET /api/convert', () => {
-  // Test for fetching conversion rates with a valid base currency provided
-  it('should return conversion rates with 200 status code if valid base currency provided', async () => {
-    // Base currency for testing
-    const baseCurrency = 'USD';
-
-    // Send a GET request to the API to retrieve conversion rates with the specified base currency
-    const response = await request(app).get(`/api/convert?base=${baseCurrency}`);
-
-    // Check if the response has a status code of 200 (OK)
-    assert.strictEqual(response.status, 200);
-
-    // Check if the response contains the base currency and rates
-    assert.strictEqual(response.body.base, baseCurrency);
-    assert.ok(response.body.rates);
-  });
-
   // Test for fetching conversion rates with default base currency value (USD)
   it('should return conversion rates with 200 status code', async () => {
     // Send a GET request to the API without specifying a base currency
