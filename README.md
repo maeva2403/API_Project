@@ -28,8 +28,8 @@ Dans le cadre du module "Intégration de données connectées" du Master [MIASH]
 
 ### Backend
 
-1. Accédez au répertoire backend de votre projet en utilisant la commande suivante dans votre terminal :
-   
+1. Accédez au répertoire backend :
+
 ```bash
 cd backend
 ```
