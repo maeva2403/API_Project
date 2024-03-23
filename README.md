@@ -1,7 +1,13 @@
 ```markdown
 # API for Countries and Currency Conversion
 
-Dans le cadre du module "Intégration de données connectées" du Master [MIASH](https://www.univ-montp3.fr/) à l'[UPVM](https://www.univ-montp3.fr/), Maéva Maïo et Houria Sayah avons reçu un projet. Il consiste en la création d'un site web permettant aux utilisateurs de visualiser des informations sur différents pays, y compris leur devise et le taux de change du dollars à cette devise. L'objectif principal est de simplifier les conversions de dollars en une autre monnaie mondiale.
+Country Currency est une application web qui offre aux utilisateurs la possibilité de consulter des informations sur différents pays, notamment leur devise et le taux de change du dollar par rapport à cette devise. L'objectif principal est de simplifier les conversions de devises pour les utilisateurs du monde entier.
+
+## Fonctionnalités
+
+- Affichage des informations sur les pays : le nom commun, le nom officiel, la capitale, la région, la langue officielle, la latitude, la longitude et la devise;
+- Calculer le montant à convertir  en dollars à la devise d'un pays sélectionné;
+- Interface conviviale et intuitive pour une expérience utilisateur optimale.
 
 ## Technologies Utilisées
 
@@ -17,14 +23,9 @@ Dans le cadre du module "Intégration de données connectées" du Master [MIASH]
 - **APIs**:
   - [Rest Countries API](https://restcountries.com/) pour obtenir des informations sur les pays.
   - [Open Exchange Rates API](https://openexchangerates.org/) pour obtenir les taux de change entre les devises.
+## Installation et Configuration
 
-## Fonctionnalités
-
-- Affichage des informations sur les pays : le nom commun, le nom officiel, la capitale, la région, la langue officielle, la latitude, la longitude et la devise;
-- Calculer le montant à convertir  en dollars à la devise d'un pays sélectionné;
-- Interface conviviale et intuitive pour une expérience utilisateur optimale.
-
-## Installation et Utilisation
+Avant de commencer, assurez-vous d'avoir cloné le projet depuis le référentiel Git. Ensuite, suivez les étapes ci-dessous pour installer et configurer le backend et le frontend de l'application.
 
 ### Backend
 
@@ -83,6 +84,8 @@ npm run dev
 ```
 http://localhost:3000
 ```
+
+En suivant ces étapes, vous pourrez installer et configurer correctement l'application backend et frontend pour commencer à travailler dessus.
 
 ## Gestion des Clés d'API
 
