@@ -1,15 +1,15 @@
 ```markdown
 # API for Countries and Currency Conversion
 
-Country Currency est une application web qui offre aux utilisateurs la possibilité de consulter des informations sur différents pays, notamment leur devise et le taux de change du dollar par rapport à cette devise. L'objectif principal est de simplifier les conversions de devises pour les utilisateurs du monde entier.
+"Country Currency" is a web application that allows users to access information about different countries, including their currency and the exchange rate of the dollar against that currency. The main objective is to simplify currency conversions for users around the world.
 
-## Fonctionnalités
+## Features
 
-- Affichage des informations sur les pays : le nom commun, le nom officiel, la capitale, la région, la langue officielle, la latitude, la longitude et la devise;
-- Calculer le montant à convertir  en dollars à la devise d'un pays sélectionné;
-- Interface conviviale et intuitive pour une expérience utilisateur optimale.
+- Display of country information: common name, official name, capital, region, official language, latitude, longitude, and currency;
+- Calculate the amount to convert to dollars into the currency of a selected country;
+- User-friendly and intuitive interface for an optimal user experience.
 
-## Technologies Utilisées
+## Technologies Used
 
 - **Frontend**:
   - HTML
@@ -21,39 +21,40 @@ Country Currency est une application web qui offre aux utilisateurs la possibili
   - Express.js
 
 - **APIs**:
-  - [Rest Countries API](https://restcountries.com/) pour obtenir des informations sur les pays.
-  - [Open Exchange Rates API](https://openexchangerates.org/) pour obtenir les taux de change entre les devises.
-## Installation et Configuration
+  - [Rest Countries API](https://restcountries.com/) to obtain information about countries.
+  - [Open Exchange Rates API](https://openexchangerates.org/) to obtain exchange rates between currencies.
 
-Avant de commencer, assurez-vous d'avoir cloné le projet depuis le référentiel Git. Ensuite, suivez les étapes ci-dessous pour installer et configurer le backend et le frontend de l'application.
+## Installation and Configuration
+
+Before you begin, make sure you have cloned the project from the Git repository. To launch the application, follow the steps below to install and configure its backend and frontend.
 
 ### Backend
 
-1. Accédez au répertoire backend :
+1. Navigate to the backend directory :
 
 ```bash
 cd backend
 ```
 
-2. Installez les dépendances nécessaires :
+2. Install the necessary dependencies :
 
 ```bash
 npm install
 ```
 
-3. Lancez le serveur :
+3. Start the server :
 
 ```bash
 npm run dev
 ```
 
-4. Pour accéder à l'API de conversion de devises, utilisez l'URL suivante :
+4. To access the currency conversion API, use the following URL :
 
 ```
 http://localhost:3000/api/convert
 ```
 
-5. Pour accéder à l'API d'informations sur un pays spécifique, utilisez l'URL suivante en remplaçant `{countryName}` par le nom du pays :
+5. To access the API for information about a specific country, use the following URL, replacing `{countryName}` with the desired country's name :
 
 ```
 http://localhost:3000/api/country?name={countryName}
@@ -61,105 +62,105 @@ http://localhost:3000/api/country?name={countryName}
 
 ### Frontend
 
-1. Accédez au répertoire frontend :
+1. Navigate to the frontend directory :
 
 ```bash
 cd frontend
 ```
 
-2. Installez les dépendances nécessaires :
+2. Install the necessary dependencies :
 
 ```bash
 npm install
 ```
 
-3. Lancez l'application :
+3. Launch the application :
 
 ```bash
 npm run dev
 ```
 
-4. Ouvrez votre navigateur et accédez à l'URL suivante :
+4. Open your browser and go to the following URL :
 
 ```
 http://localhost:3000
 ```
 
-En suivant ces étapes, vous pourrez installer et configurer correctement l'application backend et frontend pour commencer à travailler dessus.
+By following these steps, you'll be able to properly install and configure both the backend and frontend of the application to start working on it
 
-## Gestion des Clés d'API
+## API Key Management
 
-Pour sécuriser votre clé d'API et la garder hors de votre code source, vous pouvez utiliser un fichier `.env`. Voici comment procéder :
+To secure your API key and keep it out of your source code, you can use a `.env`file. Here's how to proceed :
 
-1. Accédez au répertoire backend de votre projet en utilisant la commande suivante dans votre terminal :
+1. Navigate to the backend directory of your project using the following command in your terminal :
    
 ```bash
 cd backend
 ```
 
-2. Installez les packages nécessaires, y compris Express.js et dotenv, en exécutant la commande suivante :
+2. Install the necessary packages, including Express.js and dotenv, by running the following command :
 
 ```bash
 npm install express dotenv --save
 ```
 
-3. Créez un fichier `.env` à la racine de votre projet à l'aide de la commande suivante :
+3. Create a `.env` file at the root of your project using the following command :
 
 ```bash
 touch .env
 ```
 
-4. Ajoutez votre clé d'API au fichier `.env` en utilisant la commande suivante :
+4. Add your API key to the `.env` file using the following command :
 
 ```bash
 echo 'APIKEY=votre_clé_d_api'> .env
 ```
 
-En suivant ces étapes, vous sécuriserez votre clé d'API et pourrez l'utiliser de manière sécurisée dans votre application.
+By following these steps, you will secure your API key and be able to use it securely in your application.
 
-## Exécution des tests
+## Running Tests
 
-Pour exécuter les tests de l'application, suivez ces étapes :
+To run the application's tests :
 
-1. Assurez-vous que le serveur est en cours d'exécution en exécutant la commande suivante dans votre terminal :
+1. Make sure the server is running by executing the following command in your terminal :
 
 ```bash
 npm run dev
 ```
 
-2. Accédez au répertoire backend :
+2. Navigate to the backend directory :
 
 ```bash
 cd backend
 ```
 
-3. Exécutez la commande suivante pour lancer les tests :
+3. Run the following command to launch the tests :
 
 ```bash
 npm test
 ```
 
-Cela lancera les tests automatisés pour vérifier le bon fonctionnement de l'application.
+This will launch the automated tests to verify the proper functioning of the application
 
-## Accéder à Swagger
+## To access Swagger
 
-Vous pouvez accéder à la documentation Swagger de l'API en suivant les étapes suivantes :
+To access the Swagger documentation of the API :
 
-1. Assurez-vous que le serveur est en cours d'exécution en exécutant la commande suivante dans votre terminal :
+1. Make sure the server is running by executing the following command in your terminal :
 
 ```bash
 npm run dev
 ```
 
-2. Ouvrez votre navigateur et accédez à l'URL suivante :
+2. Open your browser and go to the following URL :
 
 ```
 http://localhost:3000/api-docs
 ```
 
-## Installation des packages nécessaires
+## Installation of necessary packages
 
-Assurez-vous d'avoir installé les packages `swagger-ui-express` et `swagger-jsdoc` en exécutant la commande suivante dans votre terminal :
+Make sure you have installed the swagger-ui-express and swagger-jsdoc packages by running the following command in your terminal :
 
 ```bash
 npm install swagger-ui-express swagger-jsdoc --save
