@@ -32,15 +32,16 @@ body, html {
 }
 
 .input-container {
+    display: flex; /* Utilisation de Flexbox */
+    justify-content: space-between; /* Pour aligner les éléments sur une seule ligne avec un espace entre eux */
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
-    padding: 20px;
-    width: calc(35vw - 120px);
+    padding: 15px; /* Réduction du rembourrage */
+    width: 70%; /* Réglage de la largeur */
+    max-width: 1200px; /* Définition d'une largeur maximale */
     box-shadow: 8px 4px 4px 8px rgba(0,0,0,0.1);
-    margin: 50px;
-    float: right;
+    margin: 50px auto 0 auto; /* Déplacer vers le haut et centrer horizontalement */
     text-align: center;
-    position: relative;
 }
 
 .input-container p {
@@ -56,9 +57,9 @@ body, html {
 
 .input-container input,
 .input-container select {
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Espacement inférieur réduit */
     padding: 8px;
-    width: calc(100% - 16px);
+    width: 40%; /* Réduction de la largeur des champs d'entrée */
     border-radius: 5px;
     border: 1px solid #ccc;
 }
@@ -70,6 +71,7 @@ body, html {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 10px; /* Ajout de la marge à gauche */
 }
 
 .input-container button:hover {
@@ -79,15 +81,16 @@ body, html {
 #project-panel {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    justify-content: center; /* Centrer verticalement */
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     padding: 20px;
-    width: calc(60vw - 120px);
-    margin: 50px;
+    width: 70%; /* Réglage de la largeur */
+    max-width: 1200px; /* Définition d'une largeur maximale */
+    margin: 50px auto; /* Centrer horizontalement */
     box-shadow: 8px 4px 4px 8px rgba(0,0,0,0.1);
 }
+
 
 #project-panel h2 {
     text-align: center;

@@ -35,9 +35,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             <strong>Official Name:</strong> ${countryInfo.official_name}<br>
             <strong>Language:</strong> ${countryInfo.language}<br>
             <strong>Region:</strong> ${countryInfo.region}<br>
-            <strong>Capital:</strong> ${countryInfo.capital}<br>
-            <strong>Latitude:</strong> ${countryInfo.latlng[0]}<br>
-            <strong>Longitude:</strong> ${countryInfo.latlng[1]}<br>
         `;
 
         projectPanelElement.appendChild(projectTitle);
