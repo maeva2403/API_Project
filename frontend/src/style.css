@@ -98,7 +98,7 @@ body, html {
 }
 
 #project-panel p {
-    text-align: justify;
+    text-align: left; /* Justifier à gauche */
     overflow-wrap: break-word;
     max-width: 80%;
     margin: 20px 10% 0 10%;
